@@ -59,8 +59,7 @@ rule index_reference:
         shell("grep '^>' <(gunzip -c {input.g}) | cut -d ' ' -f 1 > decoys.txt")
         shell("sed -i.bak -e 's/>//g' decoys.txt")
         shell("cat {input.r} {input.g} > gentrome.fa.gz")
-        #shell("salmon index --index {output} --transcripts gentrome.fa.gz -d decoys.txt --gencode 2> {log}")
-        shell("salmon index --index {output} --transcripts {input.r} --gencode 2> {log}")
+        shell("salmon index --index {output} --transcripts gentrome.fa.gz -d decoys.txt --gencode 2> {log}")
 
 rule salmon_quant:
     input: 
