@@ -44,7 +44,7 @@ rule trim_fastp:
     output:
         outR1 = "results/fastp/{sample}_1P.fq",
     shell:
-        "fastp --in1 {input.R1} --out1 {output.outR1} --disable_adapter_trimming --umk --umi_loc per_read --umi_len 6 -f 22 2> {log}"
+        "fastp --in1 {input.R1} --out1 {output.outR1} --disable_adapter_trimming --umi --umi_loc per_read --umi_len 6 -f 22 2> {log}"
 
 rule index_reference:
     input:
